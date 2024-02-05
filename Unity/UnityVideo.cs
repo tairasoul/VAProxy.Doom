@@ -34,7 +34,7 @@ internal sealed class UnityVideo : IVideo, IDisposable
             Texture = new(width, height, TextureFormat.RGBA32, false, false)
             {
                 filterMode = FilterMode.Point,
-                name = "LCDoomScreen"
+                name = "DoomScreen"
             };
         }
         catch
