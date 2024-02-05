@@ -1,5 +1,7 @@
 ﻿using BepInEx;
 using DoomInProxy.Doom.Unity;
+using DoomInProxy.Patches;
+using HarmonyLib;
 using System;
 using System.Collections;
 using UIWindowPageFramework;
@@ -22,7 +24,7 @@ namespace DoomInProxy
     {
         internal static Plugin Instance;
         internal bool init = false;
-        private static bool isRunning => cpu is not null && doom is not null;
+        internal static bool isRunning => cpu is not null && doom is not null;
 
         private static Coroutine? cpu;
         private static UnityDoom? doom;
@@ -33,6 +35,7 @@ namespace DoomInProxy
         {
             Instance = this;
             Logger.LogInfo($"Plugin {PluginInfo.GUID} ({PluginInfo.Name}) version {PluginInfo.Version} loaded.");
+            new Harmony("doommod").PatchAll();
         }
 
         void Start() => Init();
