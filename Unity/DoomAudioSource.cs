@@ -6,7 +6,7 @@ internal static class DoomAudioSource
 {
     public static AudioSource Create(string name)
     {
-        var gameObject = new GameObject($"LCDoomAudio_{name}")
+        var gameObject = new GameObject($"DoomAudio_{name}")
         {
             hideFlags = HideFlags.HideAndDontSave,
         };

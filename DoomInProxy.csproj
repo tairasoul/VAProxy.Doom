@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="managed-doom\ManagedDoomTest\**" />
+    <Compile Remove="managed-doom\ManagedDoom\src\Silk\**" />
+    <EmbeddedResource Remove="managed-doom\ManagedDoomTest\**" />
+    <EmbeddedResource Remove="managed-doom\ManagedDoom\src\Silk\**" />
+    <None Remove="managed-doom\ManagedDoomTest\**" />
+    <None Remove="managed-doom\ManagedDoom\src\Silk\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>F:\SteamLibrary\steamapps\common\VA Proxy Demo\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
@@ -347,5 +356,9 @@
       <HintPath>F:\SteamLibrary\steamapps\common\VA Proxy Demo\VA_Proxy_Data\Managed\Whinarn.UnityMeshSimplifier.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd &quot;$(TargetDir)&quot;&#xD;&#xA;&#xD;&#xA;for %25%25I in (*) do (&#xD;&#xA;    if not &quot;%25%25~nxI&quot;==&quot;$(TargetName).dll&quot; (&#xD;&#xA;        del &quot;%25%25~fI&quot;&#xD;&#xA;    )&#xD;&#xA;)" />
+  </Target>
 
 </Project>

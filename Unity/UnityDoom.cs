@@ -24,7 +24,7 @@ internal sealed class UnityDoom : IDisposable
 
     private UnitySound? sound;
     private UnityUserInput? userInput;
-    private UnityVideo? video;
+    public UnityVideo? video;
 
     public Texture2D? Texture => video?.Texture;
 
