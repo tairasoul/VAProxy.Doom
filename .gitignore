@@ -5,3 +5,4 @@
 /bin/Debug/netstandard2.1
 /.vs/DoomInProxy
 /obj
+/bin/Release/netstandard2.1
